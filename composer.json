@@ -1,0 +1,33 @@
+{
+    "name": "marinar/infopages",
+    "description": "Infopages modulе",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marin",
+            "email": "marin@dev.nddesign.no"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Marinar\\Infopages\\": "src/"
+        }
+    },
+
+    "require": {
+        "marinar/marinar": "*"
+    },
+    "extra": {
+        "marinar": {
+            "module": true,
+            "plugin": false,
+            "addon_to": false
+        },
+        "laravel": {
+            "aliases": {
+                "MarinarInfopages": "Marinar\\Infopages\\MarinarInfopages"
+            }
+        }
+    }
+}
