@@ -101,13 +101,10 @@
                                class="col-lg-1 col-form-label @if($errors->$inputBag->has('add.content')) text-danger @endif"
                         >@lang('admin/infopages/infopage.content')</label>
                         <div class="col-lg-11">
-                            @Editor([
-                            'input_name' => "{$inputBag}[add][content]",
-                            'other_classes' => [ 'form-controll', ],
-                            ]){{old("{$inputBag}.add.content", (isset($chInfo)? $chInfo->aVar('content') : ''))}}@endEditor
-
-{{--                            <textarea name="{{$inputBag}}[add][content]"--}}
-{{--                            >{{old("{$inputBag}.add.content", (isset($chInfopage)? $chInfopage->aVar('content') : ''))}}</textarea>--}}
+                            <x-admin.editor
+                                :inputName="$inputBag.'[add][content]'"
+                                :otherClasses="[ 'form-controll', ]"
+                            >{{old("{$inputBag}.add.content", (isset($chInfopage)? $chInfopage->aVar('content') : ''))}}</x-admin.editor>
                         </div>
                     </div>
 
