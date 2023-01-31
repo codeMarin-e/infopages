@@ -11,7 +11,6 @@ class MarinarInfopagesSeeder extends Seeder {
         Permission::upsert([
             ['guard_name' => 'admin', 'name' => 'infopages.view'],
             ['guard_name' => 'admin', 'name' => 'infopage.create'],
-            ['guard_name' => 'admin', 'name' => 'infopage.view'],
             ['guard_name' => 'admin', 'name' => 'infopage.update'],
             ['guard_name' => 'admin', 'name' => 'infopage.delete'],
         ], ['guard_name','name']);

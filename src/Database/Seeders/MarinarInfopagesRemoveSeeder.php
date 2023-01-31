@@ -27,7 +27,6 @@
                 Permission::whereIn('name', [
                     'infopages.view',
                     'infopage.create',
-                    'infopage.view',
                     'infopage.update',
                     'infopage.delete',
                 ])

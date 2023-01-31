@@ -3,44 +3,41 @@
 namespace App\Policies;
 
 use App\Models\Infopage;
+use App\Models\User;
 
 class InfopagePolicy
 {
-    public function before(Infopage $infopage, $ability) {
-        // @HOOK_INFOPAGE_POLICY_BEFORE
-        if($infopage->hasRole('Super Admin', 'admin') )
+    public function before(User $user, $ability) {
+        // @HOOK_POLICY_BEFORE
+        if($user->hasRole('Super Admin', 'admin') )
             return true;
     }
 
-    public function view(Infopage $infopage) {
-        // @HOOK_INFOPAGE_POLICY_VIEW
-        return $infopage->hasPermissionTo('infopages.view', request()->whereIam());
+    public function view(User $user) {
+        // @HOOK_POLICY_VIEW
+        return $user->hasPermissionTo('infopages.view', request()->whereIam());
     }
 
-    public function create(Infopage $infopage) {
-        // @HOOK_INFOPAGE_POLICY_CREATE
-        return $infopage->hasPermissionTo('infopages.create', request()->whereIam());
+    public function create(User $user) {
+        // @HOOK_POLICY_CREATE
+        return $user->hasPermissionTo('infopage.create', request()->whereIam());
     }
 
-    public function update(Infopage $infopage, Infopage $chInfopage) {
-        // @HOOK_INFOPAGE_POLICY_UPDATE
-        if( !$infopage->hasPermissionTo('infopages.update', request()->whereIam()) )
-            return false;
-        if( $chInfopage->hasRole('Super Admin', 'admin'))
+    public function update(User $user, Infopage $chInfopage) {
+        // @HOOK_POLICY_UPDATE
+        if( !$user->hasPermissionTo('infopage.update', request()->whereIam()) )
             return false;
         return true;
     }
 
-    public function delete(Infopage $infopage, Infopage $chInfopage) {
-        // @HOOK_INFOPAGE_POLICY_DELETE
-        if( !$infopage->hasPermissionTo('infopages.delete', request()->whereIam()) )
-            return false;
-        if( $chInfopage->system )
+    public function delete(User $user, Infopage $chInfopage) {
+        // @HOOK_POLICY_DELETE
+        if( !$user->hasPermissionTo('infopage.delete', request()->whereIam()) )
             return false;
         return true;
     }
 
-    // @HOOK_INFOPAGE_POLICY_END
+    // @HOOK_POLICY_END
 
 
 }
