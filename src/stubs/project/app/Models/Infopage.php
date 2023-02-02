@@ -18,6 +18,8 @@ class Infopage extends Model
     protected static function boot() {
         parent::boot();
         static::deleting( static::class.'@onDeleting_infopages' );
+
+        // @HOOK_CONSTRUCT
     }
 
     public function onDeleting_infopages($model) {

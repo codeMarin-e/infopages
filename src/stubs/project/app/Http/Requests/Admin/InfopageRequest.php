@@ -11,6 +11,8 @@ use Illuminate\Validation\ValidationException;
 class InfopageRequest extends FormRequest
 {
 
+    private $mergeReturn = [];
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -28,7 +30,7 @@ class InfopageRequest extends FormRequest
     public function rules()
     {
         $chInfopage = request()->route('chInfopage');
-        return [
+        $rules = [
             'parent_id' => [ function($attribute, $value, $fail) {
                 if(!$value) return; //Root
                 if( !($parent = Infopage::find($value)) ) {
@@ -45,10 +47,14 @@ class InfopageRequest extends FormRequest
                     if($qryBld->first()) {
                         return $fail(trans('admin/infopages/validation.system.unique'));
                     }
-            }],
+                }],
 
-            // @HOOK_INFOPAGE_REQUEST_RULES
+
         ];
+
+        // @HOOK_INFOPAGE_REQUEST_RULES
+
+        return $rules;
     }
 
     public function messages() {
@@ -84,7 +90,7 @@ class InfopageRequest extends FormRequest
 
             // @HOOK_INFOPAGE_REQUEST_AFTER_VALIDATED
 
-            return $validatedData;
+            return array_merge($validatedData, $this->mergeReturn);
         }
 
         // @HOOK_INFOPAGE_REQUEST_AFTER_VALIDATED_KEY
