@@ -5,8 +5,8 @@
     @php
         $subInfopages = $infopage->childrenQry($subParentBldQry)->get();
     @endphp
-    @includeWhen( count($subInfopages), 'admin/infopages/infopages_parent_options', [
-        'mainInfopagess' => $subInfopages,
+    @includeWhen( $subInfopages->count(), 'admin/infopages/infopage_parent_options', [
+        'mainInfopages' => $subInfopages,
         'sParentId' => $sParentId,
         'subParentBldQry' => $subParentBldQry,
         'level' => $level+1

@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Marinar\Marinar\Traits\AddVariable;
-use Marinar\Marinar\Traits\MacroableModel;
+use App\Traits\AddVariable;
+use App\Traits\MacroableModel;
 
 class Infopage extends Model
 {
@@ -19,7 +19,7 @@ class Infopage extends Model
         parent::boot();
         static::deleting( static::class.'@onDeleting_infopages' );
 
-        // @HOOK_CONSTRUCT
+        // @HOOK_BOOT
     }
 
     public function onDeleting_infopages($model) {
