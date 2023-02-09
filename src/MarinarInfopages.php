@@ -4,7 +4,6 @@
     use Marinar\Infopages\Database\Seeders\MarinarInfopagesInstallSeeder;
 
     class MarinarInfopages {
-        //just for testing
 
         public static function getPackageMainDir() {
             return __DIR__;
