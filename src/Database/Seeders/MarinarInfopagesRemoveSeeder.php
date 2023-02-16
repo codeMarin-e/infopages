@@ -1,6 +1,7 @@
 <?php
     namespace Marinar\Infopages\Database\Seeders;
 
+    use App\Models\Infopage;
     use Illuminate\Database\Seeder;
     use Marinar\Infopages\MarinarInfopages;
     use Spatie\Permission\Models\Permission;
@@ -24,6 +25,9 @@
 
         public function clearMe() {
             $this->refComponents->task("Clear DB", function() {
+                foreach(Infopage::get() as $infopage) {
+                    $infopage->delete();
+                }
                 Permission::whereIn('name', [
                     'infopages.view',
                     'infopage.create',
