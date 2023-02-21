@@ -27,11 +27,11 @@
                 <thead class="thead-light">
                 <tr class="">
                     <th scope="col" class="text-center" >@lang('admin/infopages/infopages.id')</th>
-                    {{-- @HOOK_INFOPAGE_AFTER_ID_TH --}}
+                    {{-- @HOOK_INFOPAGES_AFTER_ID_TH --}}
                     <th scope="col" class="w-75">@lang('admin/infopages/infopages.title')</th>
-                    {{-- @HOOK_INFOPAGE_AFTER_TITLE_TH --}}
+                    {{-- @HOOK_INFOPAGES_AFTER_TITLE_TH --}}
                     <th scope="col" class="text-center">@lang('admin/infopages/infopages.edit')</th>
-                    {{-- @HOOK_INFOPAGE_AFTER_EDIT_TH --}}
+                    {{-- @HOOK_INFOPAGES_AFTER_EDIT_TH --}}
                     <th scope="col" class="text-center">@lang('admin/infopages/infopages.remove')</th>
                 </tr>
                 </thead>

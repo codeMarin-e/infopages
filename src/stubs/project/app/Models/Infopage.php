@@ -52,6 +52,6 @@ class Infopage extends Model
 
     public function childrenQry($bldQry = null) {
         if(is_null($bldQry)) return $this->children();
-        return $bldQry->where('parent_id', $this->id);
+        return (clone $bldQry)->where('parent_id', $this->id);
     }
 }
