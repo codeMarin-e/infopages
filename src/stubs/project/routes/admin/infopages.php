@@ -13,6 +13,9 @@ Route::group([
     Route::post('', 'store')->name('store')->middleware('can:create,'.Infopage::class);
     Route::get('create', 'create')->name('create')->middleware('can:create,'.Infopage::class);
     Route::get('{chInfopage}/edit', 'edit')->name('edit');
+
+    // @HOOK_ROUTES_MODEL
+
     Route::get('{chInfopage}', 'edit')->name('show');
     Route::patch('{chInfopage}', 'update')->name('update')->middleware('can:update,chInfopage');
     Route::delete('{chInfopage}', 'destroy')->name('destroy')->middleware('can:delete,chInfopage');

@@ -152,11 +152,15 @@
                                         name='create'>@lang('admin/infopages/infopage.create')</button>
                             @endcan
                         @endisset
+
+                        {{-- @HOOK_AFTER_BUTTONS --}}
+
                         <a class='btn btn-warning'
                            href="{{ route("{$route_namespace}.infopages.index") }}"
                         >@lang('admin/infopages/infopage.cancel')</a>
                     </div>
 
+                    {{-- @HOOK_ADDON_BUTTONS --}}
                 </form>
             </div>
         </div>
