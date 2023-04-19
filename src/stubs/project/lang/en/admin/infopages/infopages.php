@@ -11,5 +11,5 @@ return [
     'no_infopages' => 'No infopages',
     'deleted' => 'Infopage was deleted',
 
-    //@HOOK_USERS_LANG
+    //@HOOK_LANG
 ];
